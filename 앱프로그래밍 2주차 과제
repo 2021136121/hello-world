@@ -1,0 +1,53 @@
+## 구구단
+void main() {
+  for (int i = 2; i <= 9; i++) {
+    print('$i단');
+    for (int j = 1; j <= 9; j++) {
+      print('$i x $j = ${i * j}');
+    }
+    print('');
+  }
+}
+
+## 정사각형의 길이를 입력 후 사각형 출력하기
+void main() {
+  var n = 10;
+  var result = '';
+  
+  for (var y=0; y<n; y++){
+    for (var x = 0; x<n; x++){
+      var c = f1(x, y, n) || f2(x,y,n) || f3(x,y,n);
+      if(c) {
+        result += '='; 
+      } else {
+        result += ' ';
+      }
+    }
+    result += '\n';
+  }
+  
+  print(result);
+}
+
+bool f1(int x, int y, int size){
+  return x==0 || y==0 || x==size-1 || y==size-1;
+}
+
+bool f2(int x, int y, int size) {
+  return x==y;
+}
+
+bool f3(int x, int y, int size) {
+  return x+y==size-1;
+}
+
+## 년,월,일을 입력하면 요일을 출력해라
+void main() {
+  var input = '2025-03-11';
+  var date = DateTime.parse(input);
+
+  const days = ['월요일', '화요일', '수요일', '목요일', '금요일', '토요일', '일요일'];
+
+  print('${input}는 ${days[date.weekday - 1]}입니다.');
+}
+(3번째는 copilot을 활용하여 얻은 코드 DateTime.parse(input)을 통해 날짜로 변환 시키는 것 까진 이해 완료 weekday 속성을 아직 이해 못함)
